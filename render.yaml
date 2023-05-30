@@ -1,15 +1,31 @@
 services:
-  # A Docker web service
   - type: web
-    name: PiroAutoFilterBot
+    plan: free
+    name: PYRO-RENAME-BOT
     env: python
-    startCommand: python3 bot.py
-    buildCommand: pip3 install -U -r requirements.txt
-    repo: https://github/ritheshrkrm/PiroAutoFilterBot.git # optional
-    region: oregon # optional (defaults to oregon)
-    plan: free # optional (defaults to starter)
-    branch: master # optional (defaults to master)
-    numInstances: 1 # optional (defaults to 1)
-    healthCheckPath: /
-
-#End of yaml
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    repo: https://github.com/TEAM-PYRO-BOTZ/PYRO-RENAME-BOT.git
+    branch: main
+    autoDeploy: false
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: CHANNELS
+        sync: false
+      - key: ADMINS
+        sync: false
+      - key: LOG_CHANNEL
+        sync: false
+      - key: PICS
+        sync: false
+      - key: DATABASE_URI
+        sync: false
+      - key: DATABASE_NAME
+        sync: false
+      - key: COLLECTION_NAME
+        sync: false
